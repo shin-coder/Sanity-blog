@@ -46,7 +46,7 @@ export default async function Home() {
                     <p className="text-xs flex gap-1 text-[#333] leading-none group-hover:-translate-y-full transition-transform duration-300 md:pr-4">
                       (<span>read more</span>)
                     </p>
-                    <p className="text-sm flex gap-1 text-[#333] leading-none absolute top-full left-0 group-hover:-translate-y-full transition-transform duration-300 md:pr-4">
+                    <p className="text-xs flex gap-1 text-[#333] leading-none absolute top-full left-0 group-hover:-translate-y-full transition-transform duration-300 md:pr-4">
                       (<span>read more</span>)
                     </p>
                   </div>
