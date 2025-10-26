@@ -21,7 +21,7 @@ export default async function Home() {
               Rec.dex
             </h1>
             <span className="block w-3.5 h-0.5 bg-[#333] leading-none mt-1"></span>
-            <span className="text-[calc(11/16*1rem)] text-[#333] leading-none -mt-1">
+            <span className="text-[calc(11/16*1rem)] leading-none -mt-1">
               A blog where I write down my daily thoughts
             </span>
           </hgroup>
@@ -38,15 +38,15 @@ export default async function Home() {
                     <p className="text-xs text-[#999] leading-none">
                       {new Date(post.publishedAt).toLocaleDateString()}
                     </p>
-                    <h2 className="text-sm leading-none text-[#333] group-hover:opacity-50 transition-opacity duration-300 md:text-base">
+                    <h2 className="text-sm leading-none group-hover:opacity-50 transition-opacity duration-300 md:text-base">
                       {post.title}
                     </h2>
                   </div>
                   <div className="flex flex-col relative overflow-hidden">
-                    <p className="text-xs flex gap-1 text-[#333] leading-none group-hover:-translate-y-full transition-transform duration-300 md:pr-4">
+                    <p className="text-xs flex gap-1 leading-none group-hover:-translate-y-full transition-transform duration-300 md:pr-4">
                       (<span>read more</span>)
                     </p>
-                    <p className="text-xs flex gap-1 text-[#333] leading-none absolute top-full left-0 group-hover:-translate-y-full transition-transform duration-300 md:pr-4">
+                    <p className="text-xs flex gap-1 leading-none absolute top-full left-0 group-hover:-translate-y-full transition-transform duration-300 md:pr-4">
                       (<span>read more</span>)
                     </p>
                   </div>

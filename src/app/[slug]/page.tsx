@@ -39,8 +39,8 @@ export default async function PostPage({
             height="310"
           />
         )}
-        <h1 className="text-3xl font-bold mb-8 text-[#333]">{post.title}</h1>
-        <div className="prose text-[#333]">
+        <h1 className="text-3xl font-bold mb-8">{post.title}</h1>
+        <div className="prose prose-h2:text-foreground prose-li:text-foreground prose-p:text-foreground">
           <p className="text-xs text-[#999]">
             公開日: {new Date(post.publishedAt).toLocaleDateString()}
           </p>
