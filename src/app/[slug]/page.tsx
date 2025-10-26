@@ -30,9 +30,6 @@ export default async function PostPage({
   return (
     <>
       <main className="container mx-auto min-h-screen max-w-3xl p-8 flex flex-col gap-4">
-        <Link href="/" className="hover:underline">
-          ← Back to posts
-        </Link>
         {postImageUrl && (
           <img
             src={postImageUrl}
@@ -42,11 +39,19 @@ export default async function PostPage({
             height="310"
           />
         )}
-        <h1 className="text-4xl font-bold mb-8">{post.title}</h1>
-        <div className="prose">
-          <p>Published: {new Date(post.publishedAt).toLocaleDateString()}</p>
+        <h1 className="text-3xl font-bold mb-8 text-[#333]">{post.title}</h1>
+        <div className="prose text-[#333]">
+          <p className="text-xs text-[#999]">
+            公開日: {new Date(post.publishedAt).toLocaleDateString()}
+          </p>
           {Array.isArray(post.body) && <PortableText value={post.body} />}
         </div>
+        <Link
+          href="/"
+          className="text-sm mt-10 hover:opacity-50 transition-opacity duration-300"
+        >
+          記事一覧に戻る
+        </Link>
       </main>
     </>
   );
