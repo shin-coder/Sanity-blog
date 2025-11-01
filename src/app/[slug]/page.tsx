@@ -41,10 +41,17 @@ export default async function PostPage({
           />
         )}
         <h1 className="text-3xl font-bold mb-8">{post.title}</h1>
+
         <div className="prose prose-h2:text-foreground prose-h2:text-lg prose-li:text-foreground prose-p:text-foreground">
-          <p className="text-xs text-[#999]">
-            公開日: {new Date(post.publishedAt).toLocaleDateString()}
-          </p>
+          <div className="flex items-center gap-3">
+            <span className="text-xs opacity-50 text-foreground">
+              {new Date(post.publishedAt).toLocaleDateString()}
+            </span>
+            <p className="text-sm leading-none opacity-50 my-3!">
+              <span className="inline-block mr-[0.3em]">/</span>
+              {post.category}
+            </p>
+          </div>
           {Array.isArray(post.body) && <PortableText value={post.body} />}
         </div>
         <Link href="/" className="text-sm mt-10 group">

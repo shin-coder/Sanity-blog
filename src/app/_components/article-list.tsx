@@ -1,13 +1,12 @@
 import Link from 'next/link';
 import { type SanityDocument } from 'next-sanity';
 import { client } from '@/sanity/client';
-import ReadMore from './link-text';
 import LinkText from './link-text';
 
 const POST_QUERY = `*[
   _type == "post"
   && defined(slug.current)
-] | order(publishedAt desc)[0...12]{_id, title, slug, publishedAt}`;
+] | order(publishedAt desc)[0...12]{_id, title, slug, category, publishedAt}`;
 
 const options = { next: { revalidate: 30 } };
 
@@ -20,17 +19,23 @@ export default async function ArticleList() {
           {posts.map((post) => (
             <li key={post._id}>
               <Link
-                className="flex items-center justify-between py-5 group"
+                className="flex flex-col gap-2 justify-between py-5 group md:flex-row md:items-end"
                 href={`/${post.slug.current}`}
               >
-                <div className="flex items-center gap-5 md:pl-4">
-                  <p className="text-xs opacity-50 leading-none">
-                    {new Date(post.publishedAt).toLocaleDateString()}
-                  </p>
+                <article className="flex flex-col gap-3">
+                  <div className="flex gap-2 items-center">
+                    <p className="text-xs opacity-50 pt-px">
+                      {new Date(post.publishedAt).toLocaleDateString()}
+                    </p>
+                    <p className="text-xs text-foreground">
+                      <span className="inline-block mr-[0.3em]">/</span>
+                      {post.category}
+                    </p>
+                  </div>
                   <h2 className="text-sm leading-none group-hover:opacity-80 transition-opacity duration-300 md:text-base">
                     {post.title}
                   </h2>
-                </div>
+                </article>
                 <LinkText text={'read more'} />
               </Link>
             </li>
