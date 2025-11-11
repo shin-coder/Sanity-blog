@@ -1,17 +1,12 @@
 import Link from 'next/link';
 import { type SanityDocument } from 'next-sanity';
-import { client } from '@/sanity/client';
 import LinkText from './link-text';
 
-const POST_QUERY = `*[
-  _type == "post"
-  && defined(slug.current)
-] | order(publishedAt desc)[0...12]{_id, title, slug, category, publishedAt}`;
+interface ArticleProps {
+  posts: SanityDocument[];
+}
 
-const options = { next: { revalidate: 30 } };
-
-export default async function ArticleList() {
-  const posts = await client.fetch<SanityDocument[]>(POST_QUERY, {}, options);
+export default function ArticleList({ posts }: ArticleProps) {
   return (
     <>
       <section className="mt-10 w-full mx-auto md:mt-20 md:max-w-200">
